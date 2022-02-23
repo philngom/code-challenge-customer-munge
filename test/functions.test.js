@@ -5,7 +5,8 @@ import {
     addAllAges,
     getAverageCoolFactor,
     getTotalOfEachGender,
-    getGenderBreakdownOfFordOwners
+    getGenderBreakdownOfFordOwners,
+    getGenderBreakdownOfEachCar
 } from '../functions.js';
 import customers from './data.js';
 
@@ -126,12 +127,38 @@ test('getGenderBreakdownOfFordOwners', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-skip('getGenderBreakdownOfEachCar', (expect) => {
-    const expected = true;
+test('getGenderBreakdownOfEachCar', (expect) => {
+    const expected = { Lexus: { Male: 1 },
+        Volvo: { Male: 1, Female: 1 },
+        Mitsubishi: { Male: 1 },
+        Chrysler: { Female: 1, Genderqueer: 1 },
+        'Alfa Romeo': { Male: 1 },
+        Subaru: { Female: 1 },
+        Chevrolet: { Male: 3, Female: 1 },
+        Mercury: { Male: 1 },
+        Scion: { Female: 1 },
+        Oldsmobile: { Male: 1 },
+        Toyota: { Female: 1, Male: 2, Bigender: 1 },
+        Buick: { Female: 1, Male: 1 },
+        GMC: { Female: 2, Male: 2 },
+        Dodge: { Female: 2, Male: 1 },
+        'Mercedes-Benz': { Female: 1 },
+        Cadillac: { 'Non-binary': 1, Male: 1 },
+        Pontiac: { Female: 1 },
+        Eagle: { Male: 1 },
+        Ford: { Male: 2, Female: 1 },
+        Mazda: { Male: 1 },
+        Audi: { Female: 1 },
+        BMW: { Male: 1 },
+        Peugeot: { Female: 1 },
+        Porsche: { Female: 1, Male: 1 },
+        Jeep: { Female: 1 },
+        Infiniti: { Female: 1 },
+        Kia: { Male: 1 } };
 
-    const actual = greetUsers();
+    const actual = getGenderBreakdownOfEachCar(customers);
 
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });
 
 skip('getAllCoolFactorsOfEachCar', (expect) => {
