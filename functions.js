@@ -40,7 +40,9 @@ Output:
 */
 
 export function getAverageCoolFactor(customers) {
-    return true;
+    const total = customers.reduce((acc, person) =>
+        acc + person.cool_factor, 0);
+    return +((total / customers.length).toFixed(1));
 }
 
 /*
