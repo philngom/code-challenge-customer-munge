@@ -7,7 +7,8 @@ import {
     getTotalOfEachGender,
     getGenderBreakdownOfFordOwners,
     getGenderBreakdownOfEachCar,
-    getAllCoolFactorsOfEachCar
+    getAllCoolFactorsOfEachCar,
+    getAverageCoolFactorOfEachCar
 } from '../functions.js';
 import customers from './data.js';
 
@@ -196,12 +197,38 @@ test('getAllCoolFactorsOfEachCar', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-skip('getAverageCoolFactorOfEachCar', (expect) => {
-    const expected = true;
+test('getAverageCoolFactorOfEachCar', (expect) => {
+    const expected = { Lexus: 4,
+        Volvo: 6.5,
+        Mitsubishi: 4,
+        Chrysler: 6.5,
+        'Alfa Romeo': 6,
+        Subaru: 2,
+        Chevrolet: 5,
+        Mercury: 2,
+        Scion: 2,
+        Oldsmobile: 5,
+        Toyota: 3.5,
+        Buick: 3.5,
+        GMC: 7.5,
+        Dodge: 9.3,
+        'Mercedes-Benz': 3,
+        Cadillac: 4,
+        Pontiac: 8,
+        Eagle: 9,
+        Ford: 5.7,
+        Mazda: 3,
+        Audi: 1,
+        BMW: 5,
+        Peugeot: 1,
+        Porsche: 7.5,
+        Jeep: 5,
+        Infiniti: 2,
+        Kia: 2 };
 
-    const actual = greetUsers();
+    const actual = getAverageCoolFactorOfEachCar(customers);
 
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });
 
 skip('getAverageCoolFactor', (expect) => {
