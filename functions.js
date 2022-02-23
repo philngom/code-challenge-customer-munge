@@ -1,14 +1,16 @@
-/* 
-Output: 
+/*
+Output:
 ['Hello Suzie Summerson!', 'Hello Cacilia Caramuscia', 'Hello Mattie Mungane' etc]
 */
 
 export function greetUsers(customers) {
-    return true;
+    return customers.map((person) =>
+        `Hello ${person.first_name} ${person.last_name}`
+    );
 }
 
-/* 
-Output: 
+/*
+Output:
 ['Hello Suzie Summerson!', 'Hello Cacilia Caramuscia', etc]
 */
 
@@ -21,17 +23,19 @@ export function greetUsersOverAge60(customers) {
 }
 
 
-/* 
-Output: 
+/*
+Output:
 4532
 */
 
 export function addAllAges(customers) {
-    return true;
+    return customers.reduce((acc, person) =>
+        acc + person.age
+    , 0);
 }
 
-/* 
-Output: 
+/*
+Output:
 4.5
 */
 
@@ -39,8 +43,8 @@ export function getAverageCoolFactor(customers) {
     return true;
 }
 
-/* 
-Output: 
+/*
+Output:
 {
     female: 4,
     male: 3,
@@ -53,8 +57,8 @@ export function getTotalOfEachGender(customers) {
     return true;
 }
 
-/* 
-Output: 
+/*
+Output:
  {
     female: 3,
     male: 2,
@@ -71,8 +75,8 @@ export function getGenderBreakdownOfFordOwners(customers) {
 ///////////// STRETCH GOALS /////////////////////////////
 /////////////////////////////////////////////////////////
 
-/* 
-Output: 
+/*
+Output:
 {
     ford: {
         female: 3,
@@ -92,8 +96,8 @@ export function getGenderBreakdownOfEachCar(customers) {
     return true;
 }
 
-/* 
-Output: 
+/*
+Output:
 {
     ford: [3, 5, 4, 4, 7, 5],
     mercedes: [8, 5, 6, 8, 3, 9],
@@ -107,8 +111,8 @@ export function getAllCoolFactorsOfEachCar(customers) {
     return true;
 }
 
-/* 
-Output: 
+/*
+Output:
 {
     ford: 5.4
     mercedes:  8.5
@@ -121,8 +125,8 @@ export function getAverageCoolFactorOfEachCar(customers) {
 }
 
 
-/* 
-Output: 
+/*
+Output:
 // break the customers into age demographic blocks. For example, this says there are 55 people between 10 and 19, 38 people between 20 and 29, etc
 {
     10: 55,
@@ -141,8 +145,8 @@ export function makeAgeBrackets(customers) {
     return true;
 }
 
-/* 
-Output: 
+/*
+Output:
 // break the customers into age demographic blocks. For example, this says there are 55 people between 10 and 19, 38 people between 20 and 29, etc
 {
     10: [3, 5, 4, 4, 7, 5],
@@ -158,8 +162,8 @@ export function getCoolFactorsByAgeBracket(customers) {
 }
 
 
-/* 
-Output: 
+/*
+Output:
 // break the customers into age demographic blocks. For example, this says there are 55 people between 10 and 19, 38 people between 20 and 29, etc
 {
     10: 5.6,
