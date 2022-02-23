@@ -203,7 +203,16 @@ Output:
 */
 
 export function makeAgeBrackets(customers) {
-    return true;
+    const result = customers.reduce((acc, person) => {
+        const ageGroup = person.age.toString().split('')[0] + '0';
+        if(acc[ageGroup]) {
+            acc[ageGroup]++;
+        } else {
+            acc[ageGroup] = 1;
+        }
+        return acc;
+    }, {});
+    return result;
 }
 
 /*
