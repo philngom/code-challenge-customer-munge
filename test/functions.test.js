@@ -9,7 +9,8 @@ import {
     getGenderBreakdownOfEachCar,
     getAllCoolFactorsOfEachCar,
     getAverageCoolFactorOfEachCar,
-    makeAgeBrackets
+    makeAgeBrackets,
+    getCoolFactorsByAgeBracket
 } from '../functions.js';
 import customers from './data.js';
 
@@ -240,12 +241,20 @@ test('makeAgeBrackets', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-skip('getCoolFactorsByAgeBracket', (expect) => {
-    const expected = true;
+test('getCoolFactorsByAgeBracket', (expect) => {
+    const expected = { 10: [6, 2, 10, 7, 8, 9, 5, 3, 1, 8, 3],
+        20: [10, 5],
+        30: [4, 9, 9, 3, 8, 2, 5, 2],
+        40: [2, 6],
+        50: [5, 4, 6, 3, 10],
+        60: [8],
+        70: [4, 4, 2],
+        80: [4, 10, 2, 8, 2],
+        90: [9, 2, 1, 8, 1, 1, 1, 7] };
 
-    const actual = greetUsers();
+    const actual = getCoolFactorsByAgeBracket(customers);
 
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });
 
 skip('getAverageCoolFactorByAgeBracket', (expect) => {
