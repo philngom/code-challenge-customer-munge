@@ -6,7 +6,12 @@ import {
     getAverageCoolFactor,
     getTotalOfEachGender,
     getGenderBreakdownOfFordOwners,
-    getGenderBreakdownOfEachCar
+    getGenderBreakdownOfEachCar,
+    getAllCoolFactorsOfEachCar,
+    getAverageCoolFactorOfEachCar,
+    makeAgeBrackets,
+    getCoolFactorsByAgeBracket,
+    getAverageCoolFactorByAgeBracket
 } from '../functions.js';
 import customers from './data.js';
 
@@ -161,50 +166,111 @@ test('getGenderBreakdownOfEachCar', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-skip('getAllCoolFactorsOfEachCar', (expect) => {
-    const expected = true;
+test('getAllCoolFactorsOfEachCar', (expect) => {
+    const expected = { Lexus: [4],
+        Volvo: [9, 4],
+        Mitsubishi: [4],
+        Chrysler: [4, 9],
+        'Alfa Romeo': [6],
+        Subaru: [2],
+        Chevrolet: [8, 9, 2, 1],
+        Mercury: [2],
+        Scion: [2],
+        Oldsmobile: [5],
+        Toyota: [1, 8, 2, 3],
+        Buick: [4, 3],
+        GMC: [6, 6, 10, 8],
+        Dodge: [10, 8, 10],
+        'Mercedes-Benz': [3],
+        Cadillac: [7, 1],
+        Pontiac: [8],
+        Eagle: [9],
+        Ford: [5, 2, 10],
+        Mazda: [3],
+        Audi: [1],
+        BMW: [5],
+        Peugeot: [1],
+        Porsche: [8, 7],
+        Jeep: [5],
+        Infiniti: [2],
+        Kia: [2] };
 
-    const actual = greetUsers();
+    const actual = getAllCoolFactorsOfEachCar(customers);
 
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });
 
-skip('getAverageCoolFactorOfEachCar', (expect) => {
-    const expected = true;
+test('getAverageCoolFactorOfEachCar', (expect) => {
+    const expected = { Lexus: 4,
+        Volvo: 6.5,
+        Mitsubishi: 4,
+        Chrysler: 6.5,
+        'Alfa Romeo': 6,
+        Subaru: 2,
+        Chevrolet: 5,
+        Mercury: 2,
+        Scion: 2,
+        Oldsmobile: 5,
+        Toyota: 3.5,
+        Buick: 3.5,
+        GMC: 7.5,
+        Dodge: 9.3,
+        'Mercedes-Benz': 3,
+        Cadillac: 4,
+        Pontiac: 8,
+        Eagle: 9,
+        Ford: 5.7,
+        Mazda: 3,
+        Audi: 1,
+        BMW: 5,
+        Peugeot: 1,
+        Porsche: 7.5,
+        Jeep: 5,
+        Infiniti: 2,
+        Kia: 2 };
 
-    const actual = greetUsers();
+    const actual = getAverageCoolFactorOfEachCar(customers);
 
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });
 
-skip('getAverageCoolFactor', (expect) => {
-    const expected = true;
+test('makeAgeBrackets', (expect) => {
+    const expected = { 10: 11, 20: 2, 30: 8, 40: 2, 50: 5, 60: 1, 70: 3, 80: 5, 90: 8 };
 
-    const actual = greetUsers();
+    const actual = makeAgeBrackets(customers);
 
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });
 
-skip('getAverageCoolFactor', (expect) => {
-    const expected = true;
+test('getCoolFactorsByAgeBracket', (expect) => {
+    const expected = { 10: [6, 2, 10, 7, 8, 9, 5, 3, 1, 8, 3],
+        20: [10, 5],
+        30: [4, 9, 9, 3, 8, 2, 5, 2],
+        40: [2, 6],
+        50: [5, 4, 6, 3, 10],
+        60: [8],
+        70: [4, 4, 2],
+        80: [4, 10, 2, 8, 2],
+        90: [9, 2, 1, 8, 1, 1, 1, 7] };
 
-    const actual = greetUsers();
+    const actual = getCoolFactorsByAgeBracket(customers);
 
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });
 
-skip('getCoolFactorsByAgeBracket', (expect) => {
-    const expected = true;
+test('getAverageCoolFactorByAgeBracket', (expect) => {
+    const expected = { 10: 5.6,
+        20: 7.5,
+        30: 5.3,
+        40: 4,
+        50: 5.6,
+        60: 8,
+        70: 3.3,
+        80: 5.2,
+        90: 3.8 }
+      ;
 
-    const actual = greetUsers();
+    const actual = getAverageCoolFactorByAgeBracket(customers);
 
-    expect.equal(actual, expected);
-});
-
-skip('getAverageCoolFactorByAgeBracket', (expect) => {
-    const expected = true;
-
-    const actual = true;
-
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });
