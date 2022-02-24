@@ -10,7 +10,8 @@ import {
     getAllCoolFactorsOfEachCar,
     getAverageCoolFactorOfEachCar,
     makeAgeBrackets,
-    getCoolFactorsByAgeBracket
+    getCoolFactorsByAgeBracket,
+    getAverageCoolFactorByAgeBracket
 } from '../functions.js';
 import customers from './data.js';
 
@@ -257,10 +258,19 @@ test('getCoolFactorsByAgeBracket', (expect) => {
     expect.deepEqual(actual, expected);
 });
 
-skip('getAverageCoolFactorByAgeBracket', (expect) => {
-    const expected = true;
+test('getAverageCoolFactorByAgeBracket', (expect) => {
+    const expected = { 10: 5.6,
+        20: 7.5,
+        30: 5.3,
+        40: 4,
+        50: 5.6,
+        60: 8,
+        70: 3.3,
+        80: 5.2,
+        90: 3.8 }
+      ;
 
-    const actual = true;
+    const actual = getAverageCoolFactorByAgeBracket(customers);
 
-    expect.equal(actual, expected);
+    expect.deepEqual(actual, expected);
 });

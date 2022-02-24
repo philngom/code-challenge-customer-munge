@@ -254,6 +254,19 @@ Output:
 */
 
 export function getAverageCoolFactorByAgeBracket(customers) {
-    return true;
+    const result = customers.reduce((acc, person) => {
+        const ageGroup = person.age.toString().split('')[0] + '0';
+        if(acc[ageGroup]) {
+            acc[ageGroup].push(person.cool_factor);
+        } else {
+            acc[ageGroup] = [person.cool_factor];
+        }
+        return acc;
+    }, {});
+    for(let ageGroup of Object.keys(result)) {
+        const total = result[ageGroup].reduce((acc, currentItem) => acc + currentItem, 0);
+        result[ageGroup] = +((total / result[ageGroup].length).toFixed(1));
+    }
+    return result;
 }
 
